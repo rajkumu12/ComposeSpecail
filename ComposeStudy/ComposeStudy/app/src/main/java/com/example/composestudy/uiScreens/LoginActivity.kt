@@ -1,11 +1,11 @@
 package com.example.composestudy.uiScreens
 
+import android.content.Intent
 import com.example.composestudy.customviews.MyText
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -67,11 +66,9 @@ class LoginActivity : ComponentActivity() {
                     Box(modifier = Modifier.padding(40.sdp, 0.sdp, 40.sdp, 0.sdp)) {
                         Button(
                             onClick = {
-                                Log.d(
-                                    "fdsfsfd",
-                                    "fsdff" + username.value.text + "  dd" + password.value.text
-                                )
-
+                                val intent=Intent(this@LoginActivity,HomeActivity::class.java)
+                                intent.putExtra("name",username.value.text)
+                                startActivity(intent)
                             },
                             shape = RoundedCornerShape(18.sdp),
                             modifier = Modifier
